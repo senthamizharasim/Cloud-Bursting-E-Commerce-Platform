@@ -14,10 +14,17 @@ spec:
     spec:
       containers:
       - name: order
-        image: byteburst-order:v7
-        imagePullPolicy: Never
+        image: byteburstacr99.azurecr.io/order-service:latest
+        imagePullPolicy: Always
         ports:
         - containerPort: 8002
+        resources:
+          requests:
+            cpu: "100m"
+            memory: "128Mi"
+          limits:
+            cpu: "250m"
+            memory: "256Mi"
 ---
 apiVersion: v1
 kind: Service

@@ -14,10 +14,17 @@ spec:
     spec:
       containers:
       - name: catalog
-        image: byteburst-catalog:v6
-        imagePullPolicy: Never
+        image: byteburstacr99.azurecr.io/catalog-service:v7
+        imagePullPolicy: Always
         ports:
         - containerPort: 80
+        resources:
+          requests:
+            cpu: "100m"
+            memory: "128Mi"
+          limits:
+            cpu: "250m"
+            memory: "256Mi"
 ---
 apiVersion: v1
 kind: Service
